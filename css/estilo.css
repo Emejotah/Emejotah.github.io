@@ -1,0 +1,105 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 25%;
+    margin: 0;
+    padding: 0;
+}
+
+.header-bg {
+    position: absolute;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+    object-position: 0 45%;
+}
+
+h1 {
+    font-size: 9vh;
+    font-weight: 700;
+    color: #1f3982;
+}
+
+h2 {
+    font-size: 6vh;
+    font-weight: 500;
+    color: #1b3b8d;
+}
+
+.title {
+    margin: 0;
+    left: 30px;
+    position: relative;
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-style: normal; 
+    font-variant: small-caps;
+    text-shadow: 2px 2px 2px #36363692;
+}
+
+nav {
+    margin: 0;
+    width: auto;
+    height: 36px;
+    font-family: sans-serif;
+    background-color:#b5cdfa;
+}
+
+nav li {
+    display: block;
+    width:auto;
+	float:left;
+}
+
+nav a {
+  display:block;
+	padding:9px;
+	text-decoration:none;
+	color:rgb(51, 51, 51);
+}
+
+nav a:hover {
+    background-color:rgb(59, 106, 200);
+	color:#fff;
+}
+
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+div.counting-years {
+  animation: counter 3s forwards ease-in-out;
+  counter-reset: num var(--num);
+  font: 800 60px sans-serif, Trebuchet;
+}
+
+div.counting-years::before {
+  content: counter(num);
+}
+
+@keyframes counter {
+  from {
+    --num: 0;
+  }
+  to {
+    --num: 20;
+  }
+}
+
+#experiencia {
+  width: 50%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  margin: 20px 0px 20px 0px;
+  text-align: center;
+  font-size: 40px;
+}
+
