@@ -313,6 +313,10 @@ div.counting-years::before {
     background-color: #f5ff36;
   }
 
+  .informacion {
+    margin-top: 60px;
+  }
+
 }
 
 @media only screen and (orientation:landscape) {
