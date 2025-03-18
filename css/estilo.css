@@ -1,18 +1,34 @@
-#left, #middle, #right {display: inline-block; *display: inline; zoom: 1; vertical-align: top; font-size: 12px;}
-#left {width: 45%}
-#right {width: 45%}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #fdfdfd;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #fdfdfd;
+  box-sizing: border-box;
+  /* Evita que el padding incremente el tamaño total */
+  overflow-x: clip;
+  /* Evitar el desbordamiento */
 }
 
 header {
-    height: 25%;
-    margin: 0;
-    padding: 0;
+  height: 30%;
+  min-height: 3cm;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.header-bg {
+  position: absolute;
+  opacity: 0.5;
+  width: 100%;
+  height: inherit;
+  min-height: 3cm;
+  object-fit: cover;
+  object-position: 0 45%;
 }
 
 div {
@@ -26,63 +42,101 @@ p {
   text-align: center;
 }
 
-.header-bg {
-    position: absolute;
-    opacity: 0.5;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: inherit;
-    object-fit: cover;
-    object-position: 0 45%;
-}
-
 h1 {
-    font-size: 9vh;
-    font-weight: 700;
-    color: #1f3982;
+  font-size: clamp(1cm, 7vw, 10vw);
+  font-weight: 700;
+  color: #1f3982;
 }
 
 h2 {
-    font-size: 6vh;
-    font-weight: 500;
-    color: #1b3b8d;
+  font-size: clamp(6mm, 3vw, 5vw);
+  font-weight: 500;
+  color: #1b3b8d;
 }
 
 .title {
-    margin: 0;
-    left: 30px;
-    position: relative;
-    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-    font-style: normal; 
-    font-variant: small-caps;
-    text-shadow: 2px 2px 2px #36363692;
+  margin: 0;
+  left: 30px;
+  position: relative;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  font-style: normal;
+  font-variant: small-caps;
+  text-shadow: 2px 2px 2px #36363692;
+  word-break: break-word;
+  /* Rompe en el punto indicado si es necesario */
+  overflow-wrap: break-word;
+  /* Garantiza que el texto se ajuste bien */
+}
+
+.part1,
+.part2 {
+  white-space: nowrap;
+  /* Evita que las palabras se dividan incorrectamente */
 }
 
 nav {
-    margin: 0;
-    width: auto;
-    height: 36px;
-    font-family: sans-serif;
-    background-color:#b5cdfa;
+  margin: 0;
+  width: 100%;
+  height: 36px;
+  font-family: sans-serif;
+  background-color: #b5cdfa;
 }
 
 nav li {
-    display: block;
-    width:auto;
-	  float:left;
+  display: block;
+  width: auto;
+  float: left;
+  background-color: #b5cdfa;
 }
 
 nav a {
-  display:block;
-	padding:9px;
-	text-decoration:none;
-	color:rgb(51, 51, 51);
+  display: block;
+  align-content: center;
+  padding: 9px;
+  text-decoration: none;
+  color: rgb(37, 37, 37);
+}
+
+/* TODO: centrar texto horario verticalmente*/
+.horario {
+  text-align: end;
+  font-weight: bold;
+  font-size: clamp(3mm, 2.8vw, 5mm);
 }
 
 nav li a:hover {
-    background-color:rgb(59, 106, 200);
-	  color:#fff;
+  background-color: rgb(59, 106, 200);
+  color: #fff;
+}
+
+.seccionactual {
+  background-color: #1f3982;
+  color: #ffffff;
+}
+
+.container {
+  display: flex;
+  gap:15%;
+  justify-content: center;
+  /* Centra el contenedor en horizontal */
+  align-items: center;
+  /* Centra el contenedor en vertical */
+
+}
+
+.box {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.buttonContact {
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto 3%;
+  width: 100%;
+  max-width: 7cm;
+  border-radius: 10px;
+  min-width: 5cm;
 }
 
 @property --num {
@@ -94,7 +148,8 @@ nav li a:hover {
 div.counting-years {
   animation: counter 3s forwards ease-in-out;
   counter-reset: num var(--num);
-  font: 800 60px sans-serif, Trebuchet;
+  font: 800 clamp(40px, 15vw, 70px) sans-serif, Trebuchet;
+  white-space: nowrap;
 }
 
 div.counting-years::before {
@@ -105,31 +160,171 @@ div.counting-years::before {
   from {
     --num: 0;
   }
+
   to {
     --num: 20;
   }
-}
-
-.buttonContact {
-  border-radius: 20px;
 }
 
 #experiencia {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 500;
   text-align: center;
-  font-size: 40px;
+  font-size: clamp(25px, 6vw, 40px);
+  margin: 10px;
 }
 
-#mapa {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 20;
-  font-size: 15px;
+.destacado {
+  background-color:#b5cdfa;  /* Fondo llamativo */
+  color: #243447;                /* Texto en blanco para alto contraste */
+  padding: 20px;
+  margin: 30px;
+  border-radius: 15px;        /* Bordes redondeados para suavizar el diseño */
+  text-align: center;         /* Texto centrado */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra sutil para destacar el bloque */
 }
 
-#contacta {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 30;
-  font-size: 20px;
+.destacado h2 {
+  font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color:#1f3982; 
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
+.destacado p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.destacado .importante {
+  font-weight: bold;
+  color: rgb(59, 106, 200);  
+  text-transform: uppercase;
+}
+
+.destacado .fecha {
+  color: #333333;
+  font-weight: bold;
+}
+
+.destacado .nivel {
+  color: #1f3982; 
+  font-weight: bold;
+}
+
+#mapa iframe {
+  width: 100%;
+  height: 300px;
+}
+
+.informacion {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  gap: 20px;
+  padding: 20px;
+  width: 95%;
+  margin: auto;
+}
+
+.item {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #1f3982;
+}
+
+.item p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+.item strong {
+  color: rgb(59, 106, 200);
+  font-weight: bold;
+}
+
+/* MEDIA QUERIES PARA DISPOSITIVOS PEQUEÑOS */
+@media(max-width: 18cm) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* Asegura que el contenedor no exceda el ancho */
+    gap: 0px;
+    margin-top: 60px;
+  }
+
+  .informacion {
+    grid-template-columns: 1fr; /* Una sola columna */
+  }
+
+  .item h2 {
+    font-size: 1.5em;
+  }
+
+}
+
+
+@media (max-width: 13cm) {
+  header {
+    height: 3.5cm;
+  }
+
+  h1 {
+    font-size: 8mm;
+  }
+
+  h2 {
+    font-size: 4.5mm;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: wrap;
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .horario {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: medium;
+    background-color: #f5ff36;
+  }
+
+}
+
+@media only screen and (orientation:landscape) {
+  h1 {
+    font-size: clamp(1.3cm, 9vh, 10vh);
+    font-weight: 700;
+    color: #1f3982;
+  }
+  
+  h2 {
+    font-size: clamp(6mm, 5vh, 7vh);
+    font-weight: 500;
+    color: #1b3b8d;
+  }
+}
